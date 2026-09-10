@@ -1,0 +1,6 @@
+{
+  "name": "KENO Portable Services",
+  "description": "Baños Portátiles y Trailers de Lujo en California. Más de 10 años ofreciendo soluciones sanitarias profesionales para eventos, construcciones y producciones.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

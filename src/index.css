@@ -1,0 +1,239 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Keno Portable Services Brand Colors - Lime Green & Black */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    /* Black - Professional & Bold */
+    --primary: 0 0% 8%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Lime Green - Energy & Freshness (matches logo) */
+    --secondary: 90 100% 45%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 90 100% 45%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 90 100% 45%;
+
+    --radius: 0.75rem;
+
+    /* Gradient for CTAs - Lime Green variations */
+    --gradient-cta: linear-gradient(135deg, hsl(90 100% 45%), hsl(100 100% 38%));
+
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.18);
+
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Contact section specific design tokens */
+    --contact-bg: 138 32% 94%;
+    --contact-form-bg: 150 47% 8%;
+    --contact-input-bg: 150 47% 13%;
+    --contact-input-border: 150 47% 19%;
+    --contact-lime: 105 100% 41%;
+    --contact-lime-text: 150 47% 8%;
+  }
+
+  .dark {
+    --background: 0 0% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 8%;
+
+    --secondary: 90 100% 45%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 90 100% 45%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 90 100% 45%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .gradient-cta {
+    background: linear-gradient(135deg, hsl(90 100% 45%), hsl(100 100% 38%));
+    color: hsl(0 0% 0%);
+    transition: var(--transition-smooth);
+  }
+
+  .gradient-cta:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px hsl(90 100% 45% / 0.35);
+  }
+
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-elegant);
+  }
+
+  /* Contact section redesign */
+  .contact-section {
+    background-color: hsl(var(--contact-bg));
+  }
+
+  .contact-form-surface {
+    background-color: #ffffff;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 20px 25px -5px rgba(226, 232, 240, 0.6), 0 8px 10px -6px rgba(226, 232, 240, 0.6);
+  }
+
+  .contact-form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1e293b; /* slate-800 */
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-form-input,
+  .contact-form-select,
+  .contact-form-textarea {
+    background-color: #f8fafc !important; /* slate-50 */
+    border: 1px solid #e2e8f0 !important; /* slate-200 */
+    color: #0f172a !important; /* slate-900 */
+    border-radius: 0.75rem !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .contact-form-input:focus,
+  .contact-form-select:focus,
+  .contact-form-textarea:focus,
+  .contact-form-select[data-state="open"] {
+    background-color: #ffffff !important;
+    outline: none !important;
+    border-color: #2ED100 !important;
+    box-shadow: 0 0 0 3px rgba(46, 209, 0, 0.2) !important;
+  }
+
+  .contact-form-input::placeholder,
+  .contact-form-textarea::placeholder {
+    color: #94a3b8 !important; /* slate-400 */
+  }
+
+  .contact-form-input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: none;
+    cursor: pointer;
+    opacity: 0.6;
+  }
+  .contact-form-input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+  }
+
+  .contact-form-select svg {
+    color: #64748b !important;
+  }
+
+  .contact-form-select-content {
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    color: #0f172a !important;
+    border-radius: 0.75rem !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05) !important;
+  }
+
+  .contact-form-select-content [role="option"] {
+    color: #1e293b !important;
+    cursor: pointer;
+    border-radius: 0.5rem;
+  }
+
+  .contact-form-select-content [role="option"][data-state="checked"],
+  .contact-form-select-content [role="option"]:focus,
+  .contact-form-select-content [role="option"]:hover {
+    background-color: rgba(46, 209, 0, 0.12) !important;
+    color: #15803d !important;
+  }
+
+  .contact-form-submit {
+    background-color: #2ED100 !important;
+    color: #052e16 !important;
+    font-weight: 700 !important;
+    transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+  }
+
+  .contact-form-submit:hover {
+    opacity: 0.94 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 20px -5px rgba(46, 209, 0, 0.4) !important;
+  }
+
+  .contact-tag {
+    color: hsl(var(--contact-lime));
+  }
+
+  .contact-highlight {
+    color: hsl(var(--contact-lime));
+  }
+
+  .contact-detail-icon-square {
+    background-color: hsl(var(--contact-lime));
+    color: hsl(var(--contact-lime-text));
+  }
+
+  .contact-detail-link {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .contact-detail-link:hover {
+    opacity: 0.85;
+    transform: translateX(4px);
+  }
+}
